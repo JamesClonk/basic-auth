@@ -1,0 +1,9 @@
+.dockerenv
+.env
+.git
+.gitignore
+.circleci
+gin-bin
+Makefile
+Dockerfile
+README.md
