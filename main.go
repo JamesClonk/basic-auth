@@ -9,6 +9,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", basicAuth)
+	http.HandleFunc("/ping", ping)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
@@ -30,5 +31,9 @@ func basicAuth(rw http.ResponseWriter, req *http.Request) {
 		return
 	}
 	http.Error(rw, "Unauthorized", 401)
-	return
+}
+
+func ping(rw http.ResponseWriter, req *http.Request) {
+	rw.WriteHeader(200)
+	_, _ = rw.Write([]byte("OK"))
 }
